@@ -4,8 +4,8 @@
 /public/build
 /public/hot
 /public/storage
-/public/client
-/public/admin
+/public/client-dist
+/public/admin-dist
 /storage/*.key
 /vendor
 .env
