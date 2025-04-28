@@ -1,0 +1,6 @@
+.detailHeaderContainer {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+    gap: 1rem;
+}

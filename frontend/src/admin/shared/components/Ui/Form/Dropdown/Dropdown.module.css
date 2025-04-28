@@ -1,0 +1,38 @@
+.dropdownContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+}
+.select {
+    width: 100%;
+    padding: 12px 8px;
+    font-size: 14px;
+    border: 1px solid var(--color-gray-300);
+    border-radius: 4px;
+    color: var(--color-text-base);
+    cursor: pointer;
+    appearance: none;
+    height: 40px;
+}
+.arrowIcon {
+    position: absolute;
+    right: 8px;
+    top: 28%;
+    pointer-events: none;
+}
+
+.select::placeholder {
+    /*//TODO プレイスホルダーをグレーにする*/
+    color: var(--color-gray-300);
+}
+
+.select:focus {
+    box-shadow: 0 0 4px rgba(52, 152, 219, 0.5);
+}
+.select:disabled {
+    background-color: var(--color-gray-100);
+    border-color: var(--color-gray-200);
+    cursor: not-allowed;
+    color: var(--color-gray-300);
+}

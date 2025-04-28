@@ -1,0 +1,23 @@
+
+.verySmall {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+.small {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.medium {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+.large {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+
+.hrBorder {
+    border-bottom: 1px solid #e0e0e0;
+}

@@ -1,0 +1,15 @@
+.resetButton {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.textWithCheckbox {
+    display: flex;
+    align-items: center;
+    width: 138px;
+    margin-top: 6px;
+}
+
+.errorMessage {
+    color: var(--color-accent-red);
+}

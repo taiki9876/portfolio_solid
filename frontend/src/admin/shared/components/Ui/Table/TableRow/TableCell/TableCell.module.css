@@ -1,0 +1,10 @@
+.td {
+    padding: 0.7rem;
+    font-size: 14px;
+    white-space: nowrap;
+    color: var(--color-text-base);
+}
+
+.cellCenter {
+    text-align: center;
+}

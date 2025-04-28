@@ -1,0 +1,32 @@
+.subInfo {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 10px;
+    white-space: nowrap;
+}
+.subInfoTop {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+.subInfoBottom {
+    display: flex;
+    flex-direction: column;
+    padding: 0 6px;
+}
+
+
+.flexStart {
+    align-items: flex-start;
+}
+
+.flexEnd {
+    align-items: flex-end;
+}
+
+.messageMenu {
+    font-size: 14px;
+    top: 24px;
+}

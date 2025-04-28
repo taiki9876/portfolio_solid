@@ -1,0 +1,33 @@
+
+.sidenavLi {
+    margin-bottom: 8px;
+}
+
+.sidenavLink {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    color: var(--color-text-base);
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.1s;
+}
+.sidenavLabel {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.active {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.sidenavLink:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}

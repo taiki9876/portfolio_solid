@@ -1,0 +1,42 @@
+.container {
+    text-align: center;
+    white-space: nowrap;
+}
+.separator {
+    height: 3px;
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+.separator:before {
+    content: '';
+    display: block;
+    height: 3px;
+    border-radius: 8px;
+    background-color: var(--color-gray-300);
+    width: 32px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.label {
+    font-size: 14px;
+
+}
+.value {
+    font-size: 36px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    line-height: 40px;
+    margin-bottom: 2px;
+}
+.miniText {
+    font-size: 24px;
+    margin-left: 2px;
+}
+
+.description {
+    font-size: 14px;
+}
+.description span {
+    font-family: 'Poppins', sans-serif;
+}

@@ -1,0 +1,27 @@
+
+.inputContainer {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid var(--color-gray-200);
+    border-left: 1px solid var(--color-gray-200);
+}
+.textarea {
+    width: 100%;
+    padding: 12px;
+    max-height: 400px;
+}
+.textarea::placeholder {
+    color: var(--color-gray-300);
+}
+.textarea:focus {
+    box-shadow: 0 0 10px rgba(10, 109, 142, 0.3); /* 自然な青緑系の影 */
+}
+
+.sendContainer {
+    min-width: 80px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 4px;
+}

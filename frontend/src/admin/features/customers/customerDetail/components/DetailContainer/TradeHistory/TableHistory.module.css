@@ -1,0 +1,13 @@
+.table {
+    border: 1px solid var(--color-gray-200);
+    border-radius: 8px;
+    max-height: 296px;
+    overflow: scroll;
+}
+
+.tradeHistoryTitleBox {
+    justify-content: space-between;
+}
+span.priceAmount {
+    font-size: 14px;
+}

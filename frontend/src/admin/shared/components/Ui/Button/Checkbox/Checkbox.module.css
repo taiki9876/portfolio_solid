@@ -1,0 +1,52 @@
+.checkboxContainer {
+    display: flex;
+    align-items: center;
+
+}
+.checkbox {
+    display: none; /* デフォルトのチェックボックスを非表示にする */
+}
+.label {
+    padding-left: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+    color: var(--color-text-base);
+}
+
+.customCheckbox {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--color-gray-200);
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    background-color: white;
+}
+
+.checkmark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 2px;
+    transform: translate(-50%, -50%) scale(0);
+    width: 14px;
+    height: 14px;
+    background-color: var(--color-primary);
+    pointer-events: none;
+}
+/*checked*/
+.checkbox:checked + .customCheckbox .checkmark {
+    transform: translate(-50%, -50%) scale(1);
+}
+.checkbox:checked + .customCheckbox {
+    border: 2px solid var(--color-primary);
+}
+
+/*disabled*/
+.checkbox:disabled + .customCheckbox {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+

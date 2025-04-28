@@ -1,0 +1,11 @@
+.title {
+    font-size: 18px;
+    color: var(--color-primary);
+    margin-right: 1rem;
+    white-space: nowrap;
+}
+.componentTitle {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}

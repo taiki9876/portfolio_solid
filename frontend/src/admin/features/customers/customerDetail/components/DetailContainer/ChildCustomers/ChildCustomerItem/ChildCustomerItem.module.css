@@ -1,0 +1,13 @@
+.childCustomerItem {
+    background-color: var(--color-ui-chat-bg-recieve);
+    font-size: 14px;
+    padding: 0.5rem;
+    width: calc(33% - 10px);
+}
+
+.childCustomerItem div:nth-child(1) {
+    color: var(--color-primary);
+}
+.childCustomerItem div:nth-child(2) {
+    color: var(--color-gray-400);
+}

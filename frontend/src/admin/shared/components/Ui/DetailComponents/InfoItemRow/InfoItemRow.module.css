@@ -1,0 +1,55 @@
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.item {
+    display: flex;
+    gap: 8px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.wrap {
+    flex-direction: column;
+}
+
+.label {
+    font-size: 14px;
+    width: 70px;
+    white-space: nowrap;
+    color: var(--color-gray-400);
+}
+
+.value {
+    white-space: pre-wrap;
+    color: var(--color-text-base);
+}
+
+.imageContainer {
+    background-color: var(--color-gray-200);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    border: 1px dashed var(--color-gray-400);
+    max-height: 200px;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image {
+    max-height: 180px;
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+.full {
+    grid-column: span 2;
+}

@@ -1,0 +1,22 @@
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px
+}
+.separator {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.description {
+    font-size: 14px;
+}
+.errorContainer {
+    margin-left: auto;
+}
+.buttonContainer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+}

@@ -1,0 +1,31 @@
+.description {
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.item {
+    font-size: 14px;
+}
+.item:before {
+    content: '・';
+    color: var(--color-primary);
+    font-size: 1rem;
+}
+.item span {
+    font-size: 16px;
+    padding: 0 8px 2px 0;
+    color: var(--color-primary);
+}
+.item ul{
+    padding-left: 1.2rem;
+}
+.item ul li:before {
+    content: '- ';
+    color: var(--color-primary);
+    font-size: 20px;
+    margin-right: 8px;
+}

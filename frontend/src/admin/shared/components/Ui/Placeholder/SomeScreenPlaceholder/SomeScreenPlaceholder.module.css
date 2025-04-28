@@ -1,0 +1,47 @@
+.title {
+    margin-bottom: 20px;
+    width: 36%;
+    height: 32px;
+    border-radius: 8px;
+}
+.button {
+    width: 60px;
+    height: 32px;
+    border-radius: 12px;
+}
+
+.square {
+    min-width: 200px;
+    min-height: 200px;
+    border-left: 8px;
+    margin-bottom: 20px;
+}
+
+.text {
+    margin-bottom: 8px;
+    height: 16px;
+    border-radius: 8px;
+}
+
+.width50 {
+    width: 50%;
+}
+.width75 {
+    width: 75%;
+}
+.width30 {
+    width: 30%;
+}
+.width100 {
+    width: 100%;
+}
+
+
+.flex {
+    display: flex;
+    gap: 12px;
+}
+
+.section {
+    margin-bottom: 32px;
+}

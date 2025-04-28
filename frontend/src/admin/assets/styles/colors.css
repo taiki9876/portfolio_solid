@@ -1,0 +1,38 @@
+:root {
+    /* ========== Primary Colors ========== */
+    --color-primary: #0A6D8E;
+    --color-primary-light: #5A9BB2;
+
+    /* ========== Secondary Colors ========== */
+    --color-secondary: #E7F0F5;
+
+    /* ========== Text Colors ========== */
+    --color-text-base: #74788D;
+
+    /* ========== Grayscale ========== */
+    --color-gray-100: #f5f5f5;
+    --color-gray-200: #D9D9D9;
+    --color-gray-300: #ccc;
+    --color-gray-400: #A1A5B3;
+
+    /* ========== Neutral Colors ========== */
+    --color-white: #fff;
+    --color-black: #333;
+
+    /* ========== Accent Colors ========== */
+    --color-accent-red: #F46A6A;
+    --color-accent-red-light: #FEF0F0;
+    --color-accent-yellow: #F1B44C;
+    --color-accent-blue: #1967D2;
+    --color-accent-green: #2ECC71;
+
+    /* ========== UI-specific Colors ========== */
+    --color-ui-sidenav-bg: #fafafa;
+    --color-ui-page-bg: #F6F6F9;
+    --color-ui-table-border: #D7D9DE;
+    --color-ui-chat-bg: #FCFCFC;
+    --color-ui-chat-bg-recieve: #eaf4fc;
+
+    --color-ui-customer-header-item: #F0F9FE; /* 会員詳細のヘッダアイテム */
+    --color-ui-customer-header-item-string: #69C6F3; /* 会員詳細のヘッダアイテム文字 */
+}

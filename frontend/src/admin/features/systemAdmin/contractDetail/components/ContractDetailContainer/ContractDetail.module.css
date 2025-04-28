@@ -1,0 +1,18 @@
+.sectionTitleBox {
+    display: flex;
+    gap: 12px;
+    height: 32px;
+    margin-bottom: 6px;
+}
+.sectionTitleBox span {
+    line-height: 32px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.subMenuBox {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}

@@ -1,0 +1,16 @@
+.content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px 20px 16px 20px;
+    background-color: var(--color-ui-page-bg);
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+}
+.pageHeaderBox {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 16px;
+}

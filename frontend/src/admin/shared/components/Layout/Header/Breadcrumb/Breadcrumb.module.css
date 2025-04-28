@@ -1,0 +1,15 @@
+.headerContainer {
+    margin-right: 8px;
+}
+.flex {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}

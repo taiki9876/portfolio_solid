@@ -1,0 +1,26 @@
+{contract_key}/
+  chat:
+    messages:
+      chatroomId: string # チャットルームID (MySQLのchatrooms.id)
+      content: string # contentTypeがtextの場合はテキスト、processedは「対応済み」 それ以外の場合はURL
+      contentType: string # "text" | "processed" | "photo" | "video"
+      senderUID: string # 送信者UID
+      senderType: string # "staff" | "customer"
+      isReported: boolean # 通報フラグ
+      sendAt: timestamp # 送信日時
+      readAt: timestamp # 既読日時 (管理者の場合は最後に読んだ日時)
+      readBy: string[] # 既読者UIDリスト
+      createdAt: timestamp
+      updatedAt: timestamp
+      deletedAt: timestamp #削除日時
+
+    # summaries - チャットデータのリアルタイム監視用途
+    summaries:
+        chatroomId: string # チャットルームID (MySQLのchatrooms.id)
+        content: string # contentTypeがtextの場合はテキスト、processedは「対応済み」 それ以外の場合はURL
+        isProcessed: boolean # 対応済みフラグ
+        isSpam: boolean # スパムフラグ
+        lastMessage: string # 最終メッセージ
+        unreadCounts: {[uid: string]: number} # 未読数
+        createdAt: timestamp
+        updatedAt: timestamp

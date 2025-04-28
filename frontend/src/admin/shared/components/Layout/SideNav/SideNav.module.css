@@ -1,0 +1,22 @@
+.sidenav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+    /*width: 250px*/
+    padding: 6px 22px 0 22px;
+    background-color: var(--color-white);
+    border-right: solid 2px var(--color-ui-sidenav-bg);
+}
+
+.logo {
+    padding: 0 8px;
+    width: 100%;
+}
+.logoImg {
+    width: 100%;
+}
+
+.sidenavUl {
+    list-style: none;
+}

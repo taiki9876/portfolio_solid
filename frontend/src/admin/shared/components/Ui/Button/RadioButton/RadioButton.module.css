@@ -1,0 +1,59 @@
+.radioContainer {
+    display: flex;
+    align-items: center;
+}
+
+.radio {
+    display: none; /* デフォルトのラジオボタンを非表示に */
+}
+
+.label {
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+    color: var(--color-text-base);
+    padding-left: 8px;
+}
+
+.customRadio {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--color-gray-300);
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+    background-color: white;
+}
+
+.circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/*checked*/
+.radio:checked + .customRadio {
+    border: 2px solid var(--color-primary);
+}
+.radio:checked + .customRadio .circle {
+    transform: translate(-50%, -50%) scale(1);
+    background-color: var(--color-primary);
+}
+
+/*disabled*/
+.radio:disabled + .customRadio {
+    border-color: var(--color-gray-300);
+    background-color: var(--gra);
+    cursor: not-allowed;
+}
+
+.radio:disabled + .customRadio {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

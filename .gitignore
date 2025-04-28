@@ -1,0 +1,12 @@
+.idea
+/docker/data/*
+!/docker/data/.gitkeep
+.env
+
+/docker/minio/data/*
+!/docker/minio/data/solid-storage-public
+/docker/minio/data/solid-storage-public/*
+!/docker/minio/data/solid-storage-public/.gitkeep
+!/docker/minio/data/solid-storage-private
+/docker/minio/data/solid-storage-private/*
+!/docker/minio/data/solid-storage-private/.gitkeep

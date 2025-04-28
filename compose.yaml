@@ -1,0 +1,88 @@
+x-app-server: &app-server
+  working_dir: /var/www/backend
+  environment:
+    TZ: "Asia/Tokyo"
+    PHP_DISPLAY_ERRORS: "On"
+    PHP_DISPLAY_STARTUP_ERRORS: "On"
+    PHP_ERROR_REPORTING: "-1"
+    PHP_ZEND_ASSERTIONS: "1"
+    PHP_OPCACHE_ENABLE: 0
+    PHP_OPCACHE_ENABLE_CLI: 0
+    PHP_IDE_CONFIG: "serverName=solid-server"
+  volumes:
+    - .:/var/www:cached
+    - ./backend/bootstrap/cache:/var/www/backend/bootstrap/cache:cached
+    - ./backend/storage:/var/www/backend/storage:cached
+
+services:
+  app:
+    <<: *app-server
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      target: base
+    ports:
+      - "8333:80"
+    depends_on:
+      - db
+
+  db:
+    image: public.ecr.aws/docker/library/mysql:8.0.37
+    platform: linux/amd64
+    command:
+      --transaction-isolation=READ-COMMITTED
+      --collation-server=utf8mb4_general_ci
+    environment:
+      TZ: "Asia/Tokyo"
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_volume:/var/lib/mysql:cached
+      - ./docker/mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+
+  redis:
+    image: public.ecr.aws/docker/library/redis:alpine
+    environment:
+      TZ: "Asia/Tokyo"
+    ports:
+      - "6379:6379"
+
+  smtp:
+    image: mailhog/mailhog
+    platform: linux/amd64
+    ports:
+      - 8235:8025
+
+  minio:
+    image: minio/minio:RELEASE.2024-11-07T00-52-20Z
+    volumes:
+      - ./docker/minio/data:/export
+      - ./docker/minio/create_bucket.sh:/usr/local/bin/create_bucket.sh
+    environment:
+      MINIO_ROOT_USER: ${AWS_ACCESS_KEY_ID}
+      MINIO_ROOT_PASSWORD: ${AWS_SECRET_ACCESS_KEY}
+      AWS_BUCKET_PUBLIC: ${AWS_BUCKET_PUBLIC}
+      AWS_BUCKET_PRIVATE: ${AWS_BUCKET_PRIVATE}
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    entrypoint: sh
+    command: -c "
+      mkdir -p /export/.minio.sys/buckets;
+      sh /usr/local/bin/create_bucket.sh;
+      /usr/bin/minio server /export --address :9000 --console-address ":9001""
+
+  queue-worker:
+    <<: *app-server
+    image: portfolio_solid-app:latest
+    command: ["php", "artisan", "queue:work", "--sleep=3", "--tries=1", "--daemon", "--timeout=3600", "--quiet"]
+    depends_on:
+      - db
+      - redis
+
+volumes:
+  db_volume:

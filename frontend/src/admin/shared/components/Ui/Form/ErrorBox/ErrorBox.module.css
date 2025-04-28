@@ -1,0 +1,14 @@
+.container {
+    border: 1px solid #FABABA;
+    background-color: #FEF0F0;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 14px;
+    width: 100%;
+}
+.message {
+    color: var(--color-accent-red);
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.5rem;
+}

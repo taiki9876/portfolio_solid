@@ -1,0 +1,27 @@
+
+.titleBox {
+    display: flex;
+    gap: 12px;
+    height: 32px;
+    margin-bottom: 6px;
+}
+.titleBox span {
+    line-height: 32px;
+    font-size: 20px;
+    font-weight: 500;
+}
+.name {
+    color: var(--color-primary);
+}
+
+.infoSection {
+    margin-bottom: 1rem;
+}
+
+.member-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 600px;
+    margin: auto;
+}

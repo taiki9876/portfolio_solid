@@ -1,0 +1,82 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+.separator {
+    border-top: 6px solid var(--color-gray-100);
+}
+
+.box {
+    text-align: center;
+    font-size: 14px;
+    border: 1px solid var(--color-gray-200);
+    padding: 0.5rem 1rem;
+    border-radius: 16px;
+    background-color: var(--color-white);
+}
+
+.columnRight {
+    display: flex;
+    align-items: center;
+    gap:2rem;
+}
+
+/*Count Result*/
+.countResult {
+    width: 200px;
+}
+.countResult span {
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+
+/*PerPage*/
+.perPage {
+    width: 124px;
+    display: flex;
+    align-items: center;
+}
+.perPageSelectBox {
+    position: relative;
+}
+.perPageNum {
+    color: var(--color-primary);
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0 16px 0 0;
+}
+.perPageIcon {
+    position: absolute;
+    top: 16%;
+    right: 2px;
+    pointer-events: none;
+}
+
+/*ページング*/
+.paging {
+    display: flex;
+    gap: 14px;
+    margin-left: auto;
+}
+
+.pagingItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    font-size: 12px;
+    border: 1px solid var(--color-gray-200);
+    border-radius: 50%;
+    background-color: var(--color-white);
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+}
+
+.pageActive {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}

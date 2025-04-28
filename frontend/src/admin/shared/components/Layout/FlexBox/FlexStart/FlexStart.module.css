@@ -1,0 +1,19 @@
+.listContainer {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    overflow: scroll;
+}
+
+.small {
+    gap: 8px;
+}
+.medium {
+    gap: 1rem;
+}
+.large {
+    gap: 20px
+}
+.mini {
+    gap: 2px;
+}

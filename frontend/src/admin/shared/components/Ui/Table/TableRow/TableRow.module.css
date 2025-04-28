@@ -1,0 +1,9 @@
+.row {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border-bottom: 0.5px solid var(--color-ui-table-border);
+}
+
+.row:hover {
+    background-color: var(--color-gray-100);
+}

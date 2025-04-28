@@ -1,0 +1,29 @@
+.customerDetailContainer {
+    display: flex;
+    flex-direction: column;
+}
+.customerDetailContent {
+    display: flex;
+    padding: 16px 20px 20px;
+    gap: 18px;
+}
+
+.customerDetailContentLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 1;
+    width: 50%;
+    overflow-x: scroll;
+}
+.customerDetailContentRight {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 480px;
+}
+
+
+.infoSection {
+    margin-bottom: 1rem;
+}

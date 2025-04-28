@@ -1,0 +1,8 @@
+.summaryHeaderContainer {
+    border-bottom: 1px solid var(--color-gray-300);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    overflow-x: scroll;
+    padding: 1rem;
+}

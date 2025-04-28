@@ -1,0 +1,8 @@
+.text {
+    color: var(--color-text-base);
+    text-align: left;
+    padding: 1rem 1rem 1rem 0.7rem;
+    font-weight: normal;
+    white-space: nowrap;
+    height: 22px;
+}

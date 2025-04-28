@@ -1,0 +1,33 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\UseCase\SystemAdmin\FetchContractListUseCase;
+
+use Illuminate\Support\Facades\Validator;
+
+class FetchContractListInput
+{
+    public readonly string $searchWord;
+
+    public function __construct(
+        string|null $searchWord,
+    ) {
+        Validator::make(
+            ['search_word' => $searchWord],
+            $this->rules(),
+        )->validate();
+
+        $this->searchWord = $searchWord ?? "";
+    }
+
+    /**
+     * @return array<string, array<string>>
+     */
+    private function rules(): array
+    {
+        return [
+            'search_word' => ['nullable', 'string', 'max: 200'],
+        ];
+    }
+}

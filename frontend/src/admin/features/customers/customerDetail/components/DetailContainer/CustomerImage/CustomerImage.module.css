@@ -1,0 +1,37 @@
+.imageContainer {
+    width: 480px;
+    overflow: hidden;
+}
+
+.mainImage {
+    max-width: 100%;
+    height: 302px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: var(--color-gray-100);
+    margin-bottom: 10px;
+}
+.mainImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+ }
+
+.subImages {
+    max-width: 100%;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    overflow: hidden;
+    height: 72px;
+}
+.subImages img {
+    max-width: calc(16.7% - 10px);/** 横に6枚 */
+    object-fit: cover;
+    cursor: pointer;
+    background-color: var(--color-gray-100);
+    border-radius: 4px;
+}

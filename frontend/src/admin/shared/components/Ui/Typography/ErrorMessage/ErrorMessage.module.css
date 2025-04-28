@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.text {
+    font-size: 14px;
+}
+
+.error {
+    color: var(--color-accent-red);
+    font-size: 14px;
+}
+
+.warning {
+    color: var(--color-accent-yellow);
+    font-size: 14px;
+}

@@ -1,0 +1,12 @@
+.container {
+    padding: 1rem;
+    white-space: nowrap;
+}
+.title {
+    font-size: 1.1rem;
+}
+
+.checkbox {
+    cursor: pointer;
+}
+

@@ -1,0 +1,17 @@
+.menuItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none;
+}
+.menuItem:hover {
+    background-color: var(--color-gray-100);
+}
+
+.line {
+    height: 39px;
+    border-bottom: 1px solid var(--color-gray-200);
+}
