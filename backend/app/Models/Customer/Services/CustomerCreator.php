@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Models\Customer\Services;
 
-use App\Infrastructure\Firebase\FirebaseAuth;
 use App\Infrastructure\Repository\AdminEloquentRepository;
 use App\Infrastructure\Repository\ChatroomEloquentRepository;
 use App\Infrastructure\Repository\CustomerEloquentRepository;
@@ -21,7 +20,6 @@ class CustomerCreator
 {
     public function __construct(
         private readonly CustomerEloquentRepository $customerRepository,
-        private readonly FirebaseAuth $firebaseAuth,
         private readonly AdminEloquentRepository $adminRepository,
         private readonly ChatroomEloquentRepository $chatroomRepository
     ) {
@@ -35,14 +33,11 @@ class CustomerCreator
      * @param  Contract          $contract
      * @param  Customer          $customer
      * @return Customer
-     * @throws AuthException
-     * @throws FirebaseException
      */
     public function createCustomer(Contract $contract, Customer $customer): Customer
     {
         $customer = $this->customerRepository->save($customer);
 
-        $this->firebaseAuth->createAuthUser($contract, $customer);
         $staffs = $this->adminRepository
             ->findByContractId($contract->id)
             ->filter(static fn (Admin $admin) => !$admin->isSystemAdmin() && !$admin->isSupportAdmin());

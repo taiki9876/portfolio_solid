@@ -4,7 +4,6 @@ import { SectionContainer } from '@admin/shared/components/Layout/SectionContain
 import { useAuthStore } from '@admin/shared/state/globalState';
 import { canChat } from '@admin/domain/admin/model';
 import { InquiryHeader } from '@admin/features/inquiryChat/chat/components/InquiryHeader';
-import { ChatroomContainer } from '@admin/features/inquiryChat/chat/components/ChatroomContainer';
 
 export const InquiryChatPage = () => {
     const { admin } = useAuthStore();
@@ -23,7 +22,7 @@ export const InquiryChatPage = () => {
             headerComponent={<InquiryHeader />}
         >
             <SectionContainer shouldPadding={false} isHeightFit={true}>
-                <ChatroomContainer />
+                準備中
             </SectionContainer>
         </PageContainer>
     );

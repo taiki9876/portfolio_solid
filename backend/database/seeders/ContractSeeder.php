@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
-use App\Infrastructure\Firebase\FirebaseAuth;
 use App\Models\Admin\Admin;
 use App\Models\Admin\Services\AdminCreator;
 use App\Models\Admin\ValueObjects\AdminRoleEnum;
@@ -17,7 +16,6 @@ class ContractSeeder extends Seeder
 {
     public function run(): void
     {
-        FirebaseAuth::deleteAllUsers();
         //テスト用の契約を作成
         $contract = Contract::factory()->create(["name" => "テストカフェ", "key" => "some-account", "key_alias" => "STEST"]);
 

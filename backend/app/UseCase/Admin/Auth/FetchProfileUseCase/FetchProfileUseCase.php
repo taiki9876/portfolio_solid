@@ -4,14 +4,12 @@ declare(strict_types=1);
 
 namespace App\UseCase\Admin\Auth\FetchProfileUseCase;
 
-use App\Infrastructure\Firebase\FirebaseAuth;
 use App\Infrastructure\Repository\ContractEloquentRepository;
 use App\Models\Admin\Admin;
 
 class FetchProfileUseCase
 {
     public function __construct(
-        private readonly FirebaseAuth $firebaseAuth,
         private readonly ContractEloquentRepository $contractRepository,
     ) {
     }
@@ -40,13 +38,12 @@ class FetchProfileUseCase
             );
         }
 
-        $firebaseLoginToken = $this->firebaseAuth->createFirebaseLoginToken($admin->firebase_auth_uid);
         return new FetchProfileOutput(
             id: $admin->id,
             contractName: $contract->name,
             contractKey: $contract->key,
             role: $admin->role->toString(),
-            firebaseLoginToken: $firebaseLoginToken,
+            firebaseLoginToken: "",
         );
     }
 }
