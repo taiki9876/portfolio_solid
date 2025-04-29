@@ -10,8 +10,11 @@ use App\Models\Admin\Admin;
 use App\UseCase\Admin\ManagementNotices\FetchManagementNoticesUseCase\FetchManagementNoticesInput;
 use App\UseCase\Admin\ManagementNotices\FetchManagementNoticesUseCase\FetchManagementNoticesUseCase;
 use App\UseCase\Admin\ManagementNotices\FetchUnreadManagementNoticeUseCase\FetchUnreadManagementNoticeUseCase;
+use App\UseCase\Admin\ManagementNotices\ReadManagementNoticeUseCase\ReadManagementNoticeInput;
+use App\UseCase\Admin\ManagementNotices\ReadManagementNoticeUseCase\ReadManagementNoticeUseCase;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
 class ManagementNoticeController extends Controller
@@ -19,6 +22,7 @@ class ManagementNoticeController extends Controller
     public function __construct(
         private readonly FetchManagementNoticesUseCase $fetchManagementNoticesUseCase,
         private readonly FetchUnreadManagementNoticeUseCase $fetchUnreadManagementNoticeUseCase,
+        private readonly ReadManagementNoticeUseCase $readManagementNoticeUseCase,
     ) {
     }
 
@@ -58,5 +62,17 @@ class ManagementNoticeController extends Controller
             "data" => $output->toArray(),
             "hasUnread" => $output->hasUnread(),
         ]);
+    }
+
+    public function readUnreadManagementNotices(Request $request): Response
+    {
+        /** @var Admin $admin */
+        $admin = Auth::user();
+        $input = new ReadManagementNoticeInput(
+            $request->input("managementNoticeId"),
+        );
+
+        $this->readManagementNoticeUseCase->execute($admin, $input);
+        return response()->noContent();
     }
 }
