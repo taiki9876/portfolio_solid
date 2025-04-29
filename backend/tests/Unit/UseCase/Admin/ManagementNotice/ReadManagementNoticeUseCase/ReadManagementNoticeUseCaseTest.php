@@ -27,7 +27,7 @@ class ReadManagementNoticeUseCaseTest extends TestCase
         $admin = $this->createStoreAdmin($contract->id);
         $notice = $this->createPublishedManagementNotice();
 
-        $input = new ReadManagementNoticeInput((string)$notice->id);
+        $input = new ReadManagementNoticeInput($notice->id);
 
         // When
         $useCase = resolve(ReadManagementNoticeUseCase::class);

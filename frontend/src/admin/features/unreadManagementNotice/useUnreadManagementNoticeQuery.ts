@@ -7,13 +7,15 @@ import { ManagementNotice } from '@admin/domain/managementNotices/model';
 import { useOpenNotice } from '@admin/shared/components/Ui/Modal/NoticeModal/useOpenNotice';
 import { formatDate } from '@admin/shared/util/dateUtil';
 import { Admin, isSystemAdmin } from '@admin/domain/admin/model';
+import { useModalStore } from '@admin/shared/state/globalState';
 
 type SearchUnreadManagementNoticesCash = {
     notice: ManagementNotice;
     hasUnread: boolean;
 };
-export const useUnreadManagementNoticeQuery = (admin: Admin) => {
+export const useUnreadManagementNoticeQuery = (admin: Admin | undefined) => {
     const { handleOpenNotice } = useOpenNotice();
+    const { closeModal } = useModalStore();
     const isEnabled = admin !== undefined && !isSystemAdmin(admin);
 
     const { data } = useQuery<SearchUnreadManagementNoticesCash, AxiosError>({
@@ -36,8 +38,9 @@ export const useUnreadManagementNoticeQuery = (admin: Admin) => {
             formatDate(notice.publishedAt, { withTime: true }),
             {
                 label: '既読にする',
-                onClick: () => {
-                    alert('TODO: 既読');
+                onClick: async () => {
+                    await ApiEndpoint.managementNotices.readUnreadManagementNotices(notice.id);
+                    closeModal();
                 },
             }
         );

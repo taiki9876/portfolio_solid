@@ -9,6 +9,7 @@ type Props = {
     content: string;
     date?: string;
     action?: { label: string; onClick: () => void };
+    closeModal?: () => void;
 };
 export const NoticeModal = ({ content, date, action }: Props) => {
     return (

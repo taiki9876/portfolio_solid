@@ -10,6 +10,7 @@ import {
 export const managementNoticesApiPath = {
     fetchManagementNotices: `${ADMIN_API_ENDPOINT}/management-notices`,
     fetchUnreadManagementNotice: `${ADMIN_API_ENDPOINT}/management-notices/unread`,
+    readUnreadManagementNotice: `${ADMIN_API_ENDPOINT}/management-notices/read`,
 };
 export const managementNoticesApi = {
     fetchManagementNotices: async (perPage: number, page: number) => {
@@ -48,5 +49,16 @@ export const managementNoticesApi = {
         }
 
         throw new Error('未読の運営からのお知らせの取得に失敗しました。');
+    },
+    readUnreadManagementNotices: async (noticeId: number) => {
+        const res = await apiClient.post(managementNoticesApiPath.readUnreadManagementNotice, {
+            managementNoticeId: noticeId,
+        });
+
+        if (!responseOk(res.status)) {
+            throw new Error('既読に失敗しました');
+        }
+
+        return true;
     },
 } as const;
