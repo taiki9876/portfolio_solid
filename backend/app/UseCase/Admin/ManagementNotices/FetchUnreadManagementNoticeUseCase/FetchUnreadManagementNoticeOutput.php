@@ -19,6 +19,14 @@ readonly class FetchUnreadManagementNoticeOutput
         return $this->notice !== null;
     }
 
+    /**
+     * @return array{
+     *     id: int,
+     *     title: string,
+     *     content: string,
+     *     publishedAt: string|null,
+     * }|null
+     */
     public function toArray(): ?array
     {
         if ($this->notice === null) {

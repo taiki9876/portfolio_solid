@@ -10,6 +10,12 @@ use App\Models\ManagementNotice\NoticeRead;
 
 trait NoticeReadsCreator
 {
+    /**
+     * @param  ManagementNotice $notice
+     * @param  Admin            $admin
+     * @param  array<mixed>     $overrideParams
+     * @return NoticeRead
+     */
     public function createNoticeRead(
         ManagementNotice $notice,
         Admin $admin,
@@ -19,7 +25,7 @@ trait NoticeReadsCreator
             $overrideParams,
             ['management_notice_id' => $notice->id, 'admin_id' => $admin->id]
         );
-        
+
         return NoticeRead::factory()->create($params);
     }
 }

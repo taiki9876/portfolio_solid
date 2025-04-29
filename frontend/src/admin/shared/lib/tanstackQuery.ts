@@ -17,7 +17,7 @@ export const queryKeys = {
         page,
         searchWord,
     ],
-    fetchUnreadManagementNotice: () => ['unreadManagementNotices'],
+    fetchUnreadManagementNotice: (adminId: number) => ['unreadManagementNotices', adminId],
     searchChatrooms: (chatType: string, name: string, status: string) => [
         'chatrooms',
         chatType,

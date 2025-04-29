@@ -32,18 +32,19 @@ class FetchUnreadManagementNoticeUseCaseTest extends TestCase
     {
         // Given 未読が複数ある場合最新の一件のみを取得できること
         $admin = $this->createStoreAdmin($this->createContract()->id);
-        $notice1 = $this->createManagementNotice(["show_popup" => true, "published_at" => now()->subDays(1)]);
+        $notice = $this->createManagementNotice(["show_popup" => true, "published_at" => now()->subDays(1)]);
         $this->createManagementNotice(["show_popup" => true, "published_at" => now()->subDays(2)]);
 
         // When
         $unreadNotice = $this->useCase->execute($admin);
 
         // Then
-        self::assertNotNull($unreadNotice);
-        self::assertEquals($notice1->id, $unreadNotice->id);
+        $data = $unreadNotice->toArray();
+        self::assertNotNull($data);
+        self::assertEquals($notice->id, $data["id"]);
     }
 
-    public function test_execute_既読している場合はnullを取得すること(): void
+    public function test_execute_既読している場合は取得されないこと(): void
     {
         // Given
         $admin = $this->createStoreAdmin($this->createContract()->id);
@@ -54,7 +55,7 @@ class FetchUnreadManagementNoticeUseCaseTest extends TestCase
         $unreadNotice = $this->useCase->execute($admin);
 
         // Then
-        self::assertNull($unreadNotice);
+        self::assertFalse($unreadNotice->hasUnread());
     }
 
     public function test_execute_運営からのお知らせがない場合はnullを取得すること(): void
@@ -66,6 +67,6 @@ class FetchUnreadManagementNoticeUseCaseTest extends TestCase
         $unreadNotice = $this->useCase->execute($admin);
 
         // Then
-        self::assertNull($unreadNotice);
+        self::assertFalse($unreadNotice->hasUnread());
     }
 }

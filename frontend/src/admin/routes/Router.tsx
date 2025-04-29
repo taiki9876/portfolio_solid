@@ -9,7 +9,7 @@ import { RouteConfigSettingType } from './type';
 
 export const MainContent = () => {
     const { isAdminLoaded, admin } = useAuthStore();
-    useUnreadManagementNoticeQuery();
+    useUnreadManagementNoticeQuery(admin);
 
     return (
         <>

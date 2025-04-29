@@ -35,7 +35,6 @@ class FetchUnreadManagementNoticeUseCase
             ->query($contract->contract_app_type, limit: 1)
             ->where("{$mainTable}.show_popup", true)
             ->orderByDesc("{$mainTable}.published_at")
-            ->get()
             ->first();
 
         if ($managementNotice === null) {

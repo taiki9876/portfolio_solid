@@ -66,6 +66,7 @@ class SystemAdminManagementNoticeControllerTest extends TestCase
                 "title" => "TestTitle",
                 "content" => "TestContent",
                 "isPublished" => "1",
+                "showPopup" => "1",
                 "publishedAt" => "2025-01-01 12:00:00",
                 "unpublishedAt" => null,
                 "contractAppType" => null,

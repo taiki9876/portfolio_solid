@@ -27,7 +27,7 @@ class PublishManagementNoticeQueryTest extends TestCase
         $this->queryClass = new PublishManagementNoticeQuery();
     }
 
-    public function test_query_公開中の運営からのお知らせのみ取得できること()
+    public function test_query_公開中の運営からのお知らせのみ取得できること(): void
     {
         // Given
         $contract = $this->createContract(overrideParams: ["contract_app_type" => ContractAppTypeEnum::NATIVE_APP]);
@@ -51,7 +51,6 @@ class PublishManagementNoticeQueryTest extends TestCase
             "is_published" => true, "contract_app_type" => null, "published_at" => now()->addDay(), "unpublished_at" => null]);
         $this->createManagementNotice([
             "is_published" => false, "contract_app_type" => null, "published_at" => now()->subDays(1), "unpublished_at" => null]);
-
 
         //When
         $actual = $this->queryClass->query($contract->contract_app_type)->get();

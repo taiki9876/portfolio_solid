@@ -13,8 +13,10 @@ export const useManagementNoticeDefaultValue = (notice: AdminManagementNotice) =
                 ? undefined
                 : formatDate(notice.unpublishedAt, { withTime: true }),
         isPublished: notice.isPublished,
+        showPopup: notice.showPopup,
         contractAppType: notice.contractAppType === undefined ? '' : String(notice.contractAppType),
     });
+
     useEffect(() => {
         setDefaultValues({
             title: notice.title,
@@ -25,6 +27,7 @@ export const useManagementNoticeDefaultValue = (notice: AdminManagementNotice) =
                     ? undefined
                     : formatDate(notice.unpublishedAt, { withTime: true }),
             isPublished: notice.isPublished,
+            showPopup: notice.showPopup,
             contractAppType:
                 notice.contractAppType === undefined ? '' : String(notice.contractAppType),
         });

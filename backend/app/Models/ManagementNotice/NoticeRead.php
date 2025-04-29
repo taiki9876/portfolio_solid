@@ -1,24 +1,23 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models\ManagementNotice;
 
-use App\Models\Contract\ValueObjects\ContractAppTypeEnum;
 use Carbon\CarbonImmutable;
-use Database\Factories\ManagementNotice\ManagementNoticeFactory;
 use Database\Factories\ManagementNotice\NoticeReadFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property int                      $id
- * @property int                      $admin_id
- * @property int                      $management_notice_id
- * @property CarbonImmutable          $read_at
- * @property CarbonImmutable          $created_at
+ * @property int             $id
+ * @property int             $admin_id
+ * @property int             $management_notice_id
+ * @property CarbonImmutable $read_at
+ * @property CarbonImmutable $created_at
  */
 class NoticeRead extends Model
 {
-    use HasFactory;
     /** @use HasFactory<NoticeReadFactory> */
     use HasFactory;
 
