@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property string                   $title
  * @property string                   $content
  * @property bool                     $is_published
+ * @property bool                     $show_popup
  * @property CarbonImmutable          $published_at
  * @property CarbonImmutable|null     $unpublished_at
  * @property ContractAppTypeEnum|null $contract_app_type
@@ -36,6 +37,7 @@ class ManagementNotice extends EloquentModel
         'published_at' => 'immutable_datetime',
         'unpublished_at' => 'immutable_datetime',
         'is_published' => 'boolean',
+        'show_popup' => 'boolean',
         'contract_app_type' => ContractAppTypeEnum::class,
     ];
 
@@ -43,14 +45,16 @@ class ManagementNotice extends EloquentModel
         string $title,
         string $content,
         bool $is_published,
+        bool $show_popup,
         CarbonImmutable $published_at,
         ?CarbonImmutable $unpublished_at = null,
-        ?ContractAppTypeEnum $contract_app_type = null
+        ?ContractAppTypeEnum $contract_app_type = null,
     ): self {
         $managementNotice = new self();
         $managementNotice->title = $title;
         $managementNotice->content = $content;
         $managementNotice->is_published = $is_published;
+        $managementNotice->show_popup = $show_popup;
         $managementNotice->published_at = $published_at;
         $managementNotice->unpublished_at = $unpublished_at;
         $managementNotice->contract_app_type = $contract_app_type;
@@ -62,6 +66,7 @@ class ManagementNotice extends EloquentModel
         string $title,
         string $content,
         bool $is_published,
+        bool $show_popup,
         CarbonImmutable $published_at,
         ?CarbonImmutable $unpublished_at,
         ?ContractAppTypeEnum $contract_app_type,
@@ -69,6 +74,7 @@ class ManagementNotice extends EloquentModel
         $this->title = $title;
         $this->content = $content;
         $this->is_published = $is_published;
+        $this->show_popup = $show_popup;
         $this->published_at = $published_at;
         $this->unpublished_at = $unpublished_at;
         $this->contract_app_type = $contract_app_type;

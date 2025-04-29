@@ -68,6 +68,7 @@ class ManagementNoticeEloquentRepositoryTest extends TestCase
             "title" => "リリースのお知らせ",
             "content" => "リリースのお知らせです。今回は以下の機能が実装されました。",
             "is_published" => true,
+            "show_popup" => true,
             "published_at" => CarbonImmutable::now(),
             "unpublished_at" => null,
         ];

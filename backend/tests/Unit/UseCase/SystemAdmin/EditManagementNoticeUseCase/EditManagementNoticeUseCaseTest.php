@@ -27,6 +27,7 @@ class EditManagementNoticeUseCaseTest extends TestCase
             "title" => "TestTitle",
             "content" => "TestContent",
             "isPublished" => false,
+            "showPopup" => true,
             "publishedAt" => "2022-01-01 00:00:00",
             "unpublishedAt" => "2022-01-02 00:00:00",
             "contractAppType" => (string) ContractAppTypeEnum::NATIVE_APP->value,

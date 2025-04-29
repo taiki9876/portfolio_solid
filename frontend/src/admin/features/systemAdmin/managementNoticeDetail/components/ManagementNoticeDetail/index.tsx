@@ -4,7 +4,11 @@ import {
     InfoItemType,
 } from '@admin/shared/components/Ui/DetailComponents/InfoItemRow';
 import { formatDate } from '@admin/shared/util/dateUtil';
-import { AdminManagementNotice, isPublishedString } from '@admin/domain/managementNotices/model';
+import {
+    AdminManagementNotice,
+    isPublishedString,
+    showPopupString,
+} from '@admin/domain/managementNotices/model';
 import { ContractAppType, toContractAppString } from '@admin/domain/contract/model';
 import { TextButton } from '@admin/shared/components/Ui/Button/TextButton';
 import { useOpenNotice } from '@admin/shared/components/Ui/Modal/NoticeModal/useOpenNotice';
@@ -51,6 +55,7 @@ const noticeLabels: { [K in keyof AdminManagementNotice]?: string } = {
     publishedAt: '掲載日',
     unpublishedAt: '掲載終了日',
     isPublished: '公開許可',
+    showPopup: 'ポップアップ表示',
     currentPublishState: '現在の公開状態',
     contractAppType: 'アプリタイプ',
     createdAt: '登録日',
@@ -69,6 +74,9 @@ const convertNoticeInfo = (notice: AdminManagementNotice): InfoItemType[] => {
             }
             if (key === 'isPublished') {
                 value = isPublishedString(value as boolean);
+            }
+            if (key === 'showPopup') {
+                value = showPopupString(value as boolean);
             }
             if (key === 'contractAppType') {
                 value = value === '' ? '指定なし' : toContractAppString(value as ContractAppType);

@@ -14,6 +14,7 @@ export type AdminManagementNotice = {
     publishedAt: Date;
     unpublishedAt: Date | undefined;
     isPublished: boolean;
+    showPopup: boolean;
     currentPublishState: string;
     contractAppType: ContractAppType | undefined;
     createdAt: Date;
@@ -21,4 +22,7 @@ export type AdminManagementNotice = {
 
 export const isPublishedString = (isPublished: boolean): string => {
     return isPublished ? '許可' : '非公開';
+};
+export const showPopupString = (showPopup: boolean): string => {
+    return showPopup ? 'ポップアップする' : 'ポップアップしない';
 };

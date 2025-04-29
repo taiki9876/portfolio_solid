@@ -33,6 +33,7 @@ class FetchManagementNoticeUseCaseTest extends TestCase
                 "publishedAt" => $notice->published_at->format(DateUtil::DATE_FORMAT),
                 "unpublishedAt" => DateUtil::nullableCarbon($notice->unpublished_at)?->format(DateUtil::DATE_FORMAT),
                 "isPublished" => $notice->is_published,
+                "showPopup" => $notice->show_popup,
                 "currentPublishState" => $notice->publishingStatus()->value,
                 "contractAppType" => $notice->contract_app_type?->value,
                 "createdAt" => $notice->created_at->format(DateUtil::DATE_FORMAT),

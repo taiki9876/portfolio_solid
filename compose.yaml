@@ -39,7 +39,7 @@ services:
       MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_USER: ${DB_USERNAME}
     ports:
-      - "3306:3306"
+      - "33222:3306"
     volumes:
       - db_volume:/var/lib/mysql:cached
       - ./docker/mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
