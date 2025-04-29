@@ -46,8 +46,8 @@ class ChangeSupportAccountUseCase
     private function findSupportAccountByContractKey(int $contractId): ?Admin
     {
         //本来はサポートログイン デモ用で店舗オーナー
-        $targetRole = AdminRoleEnum::STORE_OWNER->value;
-        //$targetRole = AdminRoleEnum::SUPPORT_ADMIN->value;
+//        $targetRole = AdminRoleEnum::STORE_OWNER->value;
+        $targetRole = AdminRoleEnum::SUPPORT_ADMIN->value;
 
         return Admin::query()
             ->select('admins.*')
