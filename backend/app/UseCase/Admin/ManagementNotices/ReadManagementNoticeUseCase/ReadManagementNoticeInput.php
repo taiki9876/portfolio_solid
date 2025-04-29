@@ -11,7 +11,7 @@ class ReadManagementNoticeInput
     public readonly int $managementNoticeId;
 
     public function __construct(
-        string $managementNoticeId,
+        int $managementNoticeId,
     ) {
         Validator::make(
             [
@@ -29,7 +29,7 @@ class ReadManagementNoticeInput
     private function rules(): array
     {
         return [
-            "managementNoticeId" => ["required", "string"],
+            "managementNoticeId" => ["required", "integer", "exists:management_notices,id"],
         ];
     }
 }
