@@ -41,7 +41,7 @@ class PublishManagementNoticeQuery
      * @param  int|null                  $limit
      * @return Builder<ManagementNotice>
      */
-    private function query(ContractAppTypeEnum $contractAppType, ?int $limit = null): Builder
+    public function query(ContractAppTypeEnum $contractAppType, ?int $limit = null): Builder
     {
         $query = ManagementNotice::query()
             ->where('is_published', true)

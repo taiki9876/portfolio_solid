@@ -11,19 +11,21 @@ use Carbon\CarbonImmutable;
 use const FILTER_VALIDATE_BOOLEAN;
 use Illuminate\Support\Facades\Validator;
 
-class CreateManagementNoticeInput
+readonly class CreateManagementNoticeInput
 {
-    public readonly string $title;
-    public readonly string $content;
-    public readonly bool $isPublished;
-    public readonly CarbonImmutable $publishedAt;
-    public readonly ?CarbonImmutable $unpublishedAt;
-    public readonly ?ContractAppTypeEnum $contractAppType;
+    public string $title;
+    public string $content;
+    public bool $isPublished;
+    public CarbonImmutable $publishedAt;
+    public ?CarbonImmutable $unpublishedAt;
+    public ?ContractAppTypeEnum $contractAppType;
+    public bool $showPopup;
 
     public function __construct(
         string|null $title,
         string|null $content,
         string|bool|null $isPublished,
+        string|bool|null $showPopup,
         string|null $publishedAt,
         string|null $unpublishedAt,
         string | null $contractAppType,
@@ -33,6 +35,7 @@ class CreateManagementNoticeInput
                 'title' => $title,
                 'content' => $content,
                 'publishedAt' => $publishedAt,
+                'showPopup' => filter_var($showPopup, FILTER_VALIDATE_BOOLEAN),
                 'unpublishedAt' => $unpublishedAt,
                 'isPublished' => filter_var($isPublished, FILTER_VALIDATE_BOOLEAN),
                 'contractAppType' => $contractAppType,
@@ -48,5 +51,6 @@ class CreateManagementNoticeInput
         $this->publishedAt = CarbonImmutable::parse($publishedAt);
         $this->unpublishedAt = DateUtil::nullableCarbon($unpublishedAt);
         $this->contractAppType = $contractAppType === null ? null : ContractAppTypeEnum::from((int) $contractAppType);
+        $this->showPopup = filter_var($showPopup, FILTER_VALIDATE_BOOLEAN);
     }
 }

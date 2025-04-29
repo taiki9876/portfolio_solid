@@ -23,6 +23,7 @@ class ManagementNoticeFieldRule
             'publishedAt' => ['required', 'date'],
             'unpublishedAt' => ['nullable', 'date', 'after:publishedAt'],
             'isPublished' => ['required', 'boolean'],
+            'showPopup' => ['required', 'boolean'],
             'contractAppType' => ['nullable', Rule::in(ContractAppTypeEnum::values())],
         ];
     }

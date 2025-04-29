@@ -9,6 +9,7 @@ use App\Http\Response\JsonResponseBuilder;
 use App\Models\Admin\Admin;
 use App\UseCase\Admin\ManagementNotices\FetchManagementNoticesUseCase\FetchManagementNoticesInput;
 use App\UseCase\Admin\ManagementNotices\FetchManagementNoticesUseCase\FetchManagementNoticesUseCase;
+use App\UseCase\Admin\ManagementNotices\FetchUnreadManagementNoticeUseCase\FetchUnreadManagementNoticeUseCase;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +17,8 @@ use Illuminate\Support\Facades\Auth;
 class ManagementNoticeController extends Controller
 {
     public function __construct(
-        private readonly FetchManagementNoticesUseCase $fetchManagementNoticesUseCase
+        private readonly FetchManagementNoticesUseCase $fetchManagementNoticesUseCase,
+        private readonly FetchUnreadManagementNoticeUseCase $fetchUnreadManagementNoticeUseCase,
     ) {
     }
 
@@ -39,6 +41,22 @@ class ManagementNoticeController extends Controller
         return JsonResponseBuilder::make([
             "data" => $output->value,
             "meta" => $output->meta->toArray(),
+        ]);
+    }
+
+    /**
+     * 運営からのお知らせを取得
+     * @return JsonResponse
+     */
+    public function fetchUnreadManagementNotices(): JsonResponse
+    {
+        /** @var Admin $admin */
+        $admin = Auth::user();
+        $output = $this->fetchUnreadManagementNoticeUseCase->execute($admin);
+
+        return JsonResponseBuilder::make([
+            "data" => $output->toArray(),
+            "hasUnread" => $output->hasUnread(),
         ]);
     }
 }

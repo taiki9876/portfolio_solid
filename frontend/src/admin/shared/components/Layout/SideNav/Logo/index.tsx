@@ -21,13 +21,13 @@ const LogoSvg = () => {
                 <path d="M15 8 L17 13 L22 15 L17 17 L15 22 L13 17 L8 15 L13 13 Z" fill="white" />
             </g>
             <text
-                x="40"
-                y="30"
+                x="32"
+                y="32"
                 fontFamily="'Segoe UI', 'Helvetica Neue', sans-serif"
-                fontSize="18"
+                fontSize="20"
                 fill="#0A6C8E"
             >
-                Yoshida Portfolio
+                Yoshida Portfolio v2
             </text>
         </svg>
     );

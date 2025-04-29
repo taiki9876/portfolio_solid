@@ -58,6 +58,19 @@ export const inputFields: FormInputType<ManagementNoticeFormValues>[] = [
         },
     },
     {
+        label: 'ポップアップ(重要なお知らせはポップアップで表示)',
+        name: 'showPopup',
+        isRequired: true,
+        rules: rules.showPopup,
+        formType: 'radio',
+        radioOptions: {
+            options: [
+                { value: 'false', label: '非表示' },
+                { value: 'true', label: '表示' },
+            ],
+        },
+    },
+    {
         label: 'アプリタイプで掲載先を絞る',
         name: 'contractAppType',
         isRequired: false,
