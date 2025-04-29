@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->string('title', 255)->comment('お知らせタイトル');
             $table->text('content')->comment('お知らせ内容');
             $table->boolean('is_published')->default(false)->comment('公開フラグ、非公開はこの設定が最優先される');
+            $table->boolean('show_popup')->default(false)->comment('ポップアップ表示するかどうか');
             $table->tinyInteger('contract_app_type')->nullable()->comment("LIne版、ネイティブ版などのフィルタリング用。NULLなら条件なし");
             $table->dateTime('published_at')->comment('公開日時');
             $table->dateTime('unpublished_at')->nullable()->comment('非公開日時');

@@ -9,6 +9,7 @@ import {
 
 export const managementNoticesApiPath = {
     fetchManagementNotices: `${ADMIN_API_ENDPOINT}/management-notices`,
+    fetchUnreadManagementNotice: `${ADMIN_API_ENDPOINT}/management-notices/unread`,
 };
 export const managementNoticesApi = {
     fetchManagementNotices: async (perPage: number, page: number) => {
@@ -30,6 +31,22 @@ export const managementNoticesApi = {
             };
         }
 
-        throw new Error('顧客情報の取得に失敗しました。');
+        throw new Error('運営からのお知らせの取得に失敗しました。');
+    },
+    fetchUnreadManagementNotices: async () => {
+        const res = await apiClient.get<{
+            data: ManagementNoticeApiResource;
+            hasUnread: boolean;
+        }>(managementNoticesApiPath.fetchUnreadManagementNotice);
+
+        if (responseOk(res.status)) {
+            const responseData = res.data;
+            return {
+                notice: convertToManagementNotice(responseData.data),
+                hasUnread: responseData.hasUnread,
+            };
+        }
+
+        throw new Error('未読の運営からのお知らせの取得に失敗しました。');
     },
 } as const;

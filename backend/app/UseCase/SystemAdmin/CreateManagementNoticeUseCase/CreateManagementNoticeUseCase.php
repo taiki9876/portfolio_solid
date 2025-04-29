@@ -20,6 +20,7 @@ class CreateManagementNoticeUseCase
             $input->title,
             $input->content,
             $input->isPublished,
+            $input->showPopup,
             $input->publishedAt,
             $input->unpublishedAt,
             $input->contractAppType,

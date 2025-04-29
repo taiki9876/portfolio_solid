@@ -77,4 +77,4 @@ firestoreの設定を、作成したローカルプロジェクトへ同期し�
     - ブラウザ上でgoogleアカウント認証のページが開くため、認証を行う。
 3. firestore設定のデプロイ
     - ターミナルで`firebase deploy`を実行。
-    - firestoreの設定がデプロイされる。
+    - firestoreの設定がデプロイされる。(indexとsecurity)

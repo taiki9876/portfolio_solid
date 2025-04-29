@@ -32,6 +32,7 @@ export type AdminManagementNoticeApiResource = {
     publishedAt: string;
     unpublishedAt: string | null;
     isPublished: boolean;
+    showPopup: boolean;
     currentPublishState: string;
     contractAppType: ContractAppType | null;
     createdAt: string;
@@ -54,6 +55,7 @@ export const convertToAdminManagementNotice = (
         unpublishedAt:
             resource.unpublishedAt === null ? undefined : new Date(resource.unpublishedAt),
         isPublished: resource.isPublished,
+        showPopup: resource.showPopup,
         currentPublishState: resource.currentPublishState,
         contractAppType: resource.contractAppType === null ? undefined : resource.contractAppType,
         createdAt: new Date(resource.createdAt),

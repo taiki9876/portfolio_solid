@@ -4,12 +4,17 @@ import { NoticeModal } from './index';
 export const useOpenNotice = () => {
     const { openModal } = useModalStore();
 
-    const handleOpenNotice = (title: string, content: string, date?: string) => {
+    const handleOpenNotice = (
+        title: string,
+        content: string,
+        date?: string,
+        action?: { label: string; onClick: () => void }
+    ) => {
         openModal({
             title: title,
             widthSize: 'medium',
             verticalCenter: false,
-            renderBody: () => <NoticeModal content={content} date={date} />,
+            renderBody: () => <NoticeModal content={content} date={date} action={action} />,
         });
     };
 

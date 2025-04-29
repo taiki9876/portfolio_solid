@@ -7,6 +7,7 @@ export type ManagementNoticeFormValues = {
     publishedAt: string | undefined;
     unpublishedAt: string | undefined;
     isPublished: boolean;
+    showPopup: boolean;
     contractAppType: string;
 };
 
@@ -16,6 +17,7 @@ export const defaultValues: ManagementNoticeFormValues = {
     publishedAt: undefined,
     unpublishedAt: undefined,
     isPublished: true,
+    showPopup: false,
     contractAppType: '',
 };
 
@@ -37,6 +39,9 @@ export const rules = {
         pattern: Validation.pattern.date(),
     },
     isPublished: {
+        validate: (value: unknown) => Validation.validate.isBoolean(value),
+    },
+    showPopup: {
         validate: (value: unknown) => Validation.validate.isBoolean(value),
     },
     contractAppType: {

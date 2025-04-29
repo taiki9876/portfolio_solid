@@ -63,6 +63,7 @@ Route::prefix('admin')->group(static function () {
 
             //運営からのお知らせ
             Route::get('/management-notices', [ManagementNoticeController::class, 'fetchManagementNotices'])->name('managementNotice.fetchManagementNotices');
+            Route::get('/management-notices/unread', [ManagementNoticeController::class, 'fetchUnreadManagementNotices'])->name('managementNotice.fetchManagementNotices');
 
             //問い合わせチャット
             Route::get('/chat/chatrooms', [ChatController::class, 'fetchChatrooms'])->name('chat.chatrooms')->middleware('can:act-as-contract');

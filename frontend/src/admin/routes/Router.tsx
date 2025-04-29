@@ -2,12 +2,14 @@ import { Routes, Route } from 'react-router-dom';
 import { useAuthStore } from '@admin/shared/state/globalState';
 import { InitialScreen } from '@admin/shared/components/Container/AppInitialContainer/InitialScreen';
 import { isSystemAdmin } from '@admin/domain/admin/model';
+import { useUnreadManagementNoticeQuery } from '@admin/features/unreadManagementNotice/useUnreadManagementNoticeQuery';
 import { RouteConfig } from './routes';
 import { SystemAdminRouteConfig } from './routesSystemAdmin';
 import { RouteConfigSettingType } from './type';
 
 export const MainContent = () => {
     const { isAdminLoaded, admin } = useAuthStore();
+    useUnreadManagementNoticeQuery(admin);
 
     return (
         <>
