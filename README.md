@@ -1,5 +1,10 @@
 サイトURL
-[準備中]
+* http://v2.t-yoshi.com/admin
+* ログインID：admin
+* パスワード：password
+
+本来はチャット機能がありますが、ホスティング環境の制限でFirebaseの機能が使えないため、チャット機能は無効にしています。  
+インフラ環境はAWS Fargate Auroraなどを利用するよう準備中です。
 
 ## 技術スタック
 * フロントエンド
@@ -26,7 +31,7 @@
 git clone git@github.com:taiki9876/portfolio_solid.git
 cd portfolio_solid
 ```
-ディレクトリ構成の概要
+[補足]ディレクトリ構成の概要
 ```
 backend （Laravelのバックエンド）
 frontend (Reactのフロントエンド）
@@ -73,6 +78,10 @@ make prod
 ```
 
 ### 7. サイトにアクセスする
-```bash
+http://localhost:8333/admin  
+以下のアカウントをseederで作成しています。  
+admin-account  
+password  
+
 
 
