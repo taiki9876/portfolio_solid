@@ -14,7 +14,7 @@ class AdminSeeder extends Seeder
     {
         //システム管理者
         Admin::factory()->create([
-            'login_id' => 'admin',
+            'login_id' => 'admin-account',
             'role' => AdminRoleEnum::SYSTEM_ADMIN
         ]);
     }
