@@ -33,3 +33,6 @@ export const isSystemAdmin = (admin: Admin | undefined): boolean => {
 export const isSupportAdmin = (admin: Admin | undefined): boolean => {
     return admin?.role === AdminRoles.supportAdmin;
 };
+export const isStoreAdmin = (admin: Admin | undefined): boolean => {
+    return admin?.role === AdminRoles.storeOwner;
+};

@@ -50,7 +50,7 @@ Route::prefix('admin')->group(static function () {
             Route::post('system-admin/management-notices', [SystemAdminManagementNoticeController::class, 'createManagementNotice'])->name('systemAdmin.createManagementNotice')->middleware('can:act-as-system-admin');
 
             Route::post('system-admin/change-support-account', [SystemAdminController::class, 'changeSupportAccount'])->name('systemAdmin.changeSupportAccount')->middleware('can:act-as-system-admin');
-            Route::post('system-admin/change-system-account', [SystemAdminController::class, 'changeSystemAccount'])->name('systemAdmin.changeSystemAccount')->middleware('can:act-as-support-admin');
+            Route::post('system-admin/change-system-account', [SystemAdminController::class, 'changeSystemAccount'])->name('systemAdmin.changeSystemAccount');//->middleware('can:act-as-support-admin')
             //---- システム管理者向けAPI -----<<
 
             //トップページ集計

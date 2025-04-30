@@ -7,12 +7,28 @@
   * TypeScript
   * Vite
   * Css Module
+  * Storybook
 * バックエンド
   * PHP + Laravel
   * MySQL
   * Redis
   * Docker Compose
   * Apache
+
+## このサービスの概要
+管理画面を模したポートフォリオサイトです。  
+Reactを使用して、SPAでフロントエンドを構築しています。  
+
+### アクター
+アクターは管理者です。権限の順に並べます
+* システム管理者（契約アカウントの追加などが可能）
+* サポート管理者（CSが利用するような場面を想定、店舗アカウントと近い権限を持つが機能制限あり）
+* オーナー管理者（店舗オーナー管理者。顧客は基本的にこのアカウントを利用する）
+
+### 今後の展望
+現状管理画面のみだが、Flutterを使用して、モバイルアプリを作成する予定。
+その他、契約内容によってはwebアプリみたいな分岐も想定。
+
 
 ## 環境構築
 
@@ -57,7 +73,8 @@ make npm
 ```
 
 ### 5. マイグレーション
-テストデータも挿入します。
+テストデータも挿入します。  
+この時firebaseにもユーザーを作成するため[Firebaseのプロジェクト](doc/firebase/firebase_setup.md)を作成しておいてください。  
 ```bash
 make migrate
 make migrate-refresh
@@ -73,6 +90,8 @@ make prod
 ```
 
 ### 7. サイトにアクセスする
-```bash
-
+http://localhost:8333/admin/login  
+ログイン情報（ログインID、パスワード）：
+* admin
+* password
 
