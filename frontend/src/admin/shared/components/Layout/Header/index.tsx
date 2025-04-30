@@ -6,7 +6,7 @@ import { HelpIcon } from '@admin/shared/components/Ui/Icon/HelpIcon';
 import { UserCircleIcon } from '@admin/shared/components/Ui/Icon/UserCircleIcon';
 import { useAuthStore } from '@admin/shared/state/globalState';
 import { truncateString } from '@admin/shared/util/stringUtil';
-import {isStoreAdmin} from '@admin/domain/admin/model';
+import { isStoreAdmin } from '@admin/domain/admin/model';
 import { PeopleIcon } from '@admin/shared/components/Ui/Icon/PeopleIcon';
 import { useChangeSystemAccount } from '@admin/features/systemAdmin/shared/hooks/useChangeSystemAccount';
 import styles from './Header.module.css';
@@ -19,7 +19,6 @@ export const Header = () => {
         <header className={styles.header} style={{ paddingLeft: `${SIDE_NAV_WIDTH + 24}px` }}>
             <Breadcrumb />
             <div className={styles.navItemContainer}>
-                {/*TODO: 本来はサポートデモ用*/}
                 {isStoreAdmin(admin) && (
                     <>
                         <div className={styles.contractName}>

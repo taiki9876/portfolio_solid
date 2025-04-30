@@ -94,31 +94,31 @@ class SystemAdminControllerTest extends TestCase
     //            ->assertJson(["isSuccess" => false]);
     //    }
 
-    public function test_changeSystemAccount_システム管理者へアカウントの切り替えができること(): void
-    {
-        //Given
-        $contract = $this->createContract();
-        $systemAdmin = $this->createSystemAdmin();
-        $supportAdmin = $this->createSupportAdmin(contractId: $contract->id);
-
-        $this->actingAs($supportAdmin, "admin");
-
-        //When
-        $this->post(route("admin.api.systemAdmin.changeSystemAccount"))
-            ->assertStatus(Response::HTTP_OK)
-            ->assertJson(["isSuccess" => true]);
-
-        //Then
-        /** @var Admin $loginAdmin */
-        $loginAdmin = Auth::user();
-        self::assertEquals($systemAdmin->id, $loginAdmin->id, "サポートアカウントに切り替わること");
-
-        // サポート以外はアクセスできないこと
-        $ownerAdmin = $this->createStoreAdmin($contract->id);
-        $this->actingAs($ownerAdmin, "admin");
-        $this->post(route("admin.api.systemAdmin.changeSystemAccount"))
-            ->assertStatus(Response::HTTP_FORBIDDEN);
-    }
+    //    public function test_changeSystemAccount_システム管理者へアカウントの切り替えができること(): void
+    //    {
+    //        //Given
+    //        $contract = $this->createContract();
+    //        $systemAdmin = $this->createSystemAdmin();
+    //        $supportAdmin = $this->createSupportAdmin(contractId: $contract->id);
+    //
+    //        $this->actingAs($supportAdmin, "admin");
+    //
+    //        //When
+    //        $this->post(route("admin.api.systemAdmin.changeSystemAccount"))
+    //            ->assertStatus(Response::HTTP_OK)
+    //            ->assertJson(["isSuccess" => true]);
+    //
+    //        //Then
+    //        /** @var Admin $loginAdmin */
+    //        $loginAdmin = Auth::user();
+    //        self::assertEquals($systemAdmin->id, $loginAdmin->id, "サポートアカウントに切り替わること");
+    //
+    //        // サポート以外はアクセスできないこと
+    //        $ownerAdmin = $this->createStoreAdmin($contract->id);
+    //        $this->actingAs($ownerAdmin, "admin");
+    //        $this->post(route("admin.api.systemAdmin.changeSystemAccount"))
+    //            ->assertStatus(Response::HTTP_FORBIDDEN);
+    //    }
 
     public function test_createContract_契約の保存ができること(): void
     {

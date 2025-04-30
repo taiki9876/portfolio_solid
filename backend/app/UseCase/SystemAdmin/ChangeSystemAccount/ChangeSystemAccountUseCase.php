@@ -23,9 +23,9 @@ class ChangeSystemAccountUseCase
         $admin = Auth::guard('admin')->user();
 
         //TODO: デモ用にこの制限をなくす 他にもadmin.phpやChangeSupportAccountUseCaseも変更
-//        if (!$admin->role->is(AdminRoleEnum::SUPPORT_ADMIN)) {
-//            throw new \DomainException("サポートアカウント以外はアクセスできません");
-//        }
+        //        if (!$admin->role->is(AdminRoleEnum::SUPPORT_ADMIN)) {
+        //            throw new \DomainException("サポートアカウント以外はアクセスできません");
+        //        }
 
         $systemAdmin = $this->adminRepository->findSystemAdmin();
 

@@ -42,7 +42,7 @@ Reactを使用して、SPAでフロントエンドを構築しています。
 git clone git@github.com:taiki9876/portfolio_solid.git
 cd portfolio_solid
 ```
-ディレクトリ構成の概要
+[補足]ディレクトリ構成の概要
 ```
 backend （Laravelのバックエンド）
 frontend (Reactのフロントエンド）
